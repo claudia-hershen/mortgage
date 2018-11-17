@@ -1,6 +1,10 @@
 """MortgageAmmount Class."""
 from mortgage import Mortgage
 
+# Adrianc: method and class documentation should contain the params expected types and their
+# meaning in a short description.
+# im not sure there is need for inheritance from Mortgage, hoever if external APIs (managers) use only Mortgage class APIs
+# its OK, just make Mortgage class an abstarct class (@abc.ABCMeta decorator)
 
 class MortgageAmmount(Mortgage):
     """MortgageAmmount - Inherit from Mortgage."""
