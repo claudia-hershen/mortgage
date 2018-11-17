@@ -1,8 +1,11 @@
 """Parameters Class."""
 
+# Adrianc: TBH i am not sure this persistency is needed for the drill
+# hoever if its needed you can define a PersistentParameter class that does this
+# the module should only contain the root path where to write the files.
 INTEREST_FILE_PATH = 'interest.txt'
 
-
+# Adrianc: MortgageParameters ?
 class Parameters(object):
     """
     Parameters - Class with parameters used by the app.
@@ -24,6 +27,9 @@ class Parameters(object):
         """
         super(Parameters, self).__init__()
         # get default interest rate from file
+        
+        # use python with statement to make sure the file descriptor is closed if there is an error during read
+        # https://stackoverflow.com/questions/9282967/how-to-open-a-file-using-the-open-with-statement
         interest_file = open(INTEREST_FILE_PATH)
         default_interest = interest_file.read()
         interest_file.close()
