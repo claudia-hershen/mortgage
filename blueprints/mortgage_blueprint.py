@@ -16,6 +16,7 @@ mortgage_blueprint = Blueprint(
     'mortgage_blueprint',
     __name__)
 
+# Adrianc: MortgageManager can be be a singleton in the system
 _mortgage_manager = MortgageManager()
 
 
