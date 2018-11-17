@@ -55,6 +55,9 @@ class MortgageAmmount(Mortgage):
         mortgage_without_down_payment = self._maximum_mortgage_no_down_payment()
         return round(self.down_payment + mortgage_without_down_payment, 2)
 
+    # Adrianc: to further split into modules you can create a InterestCalculator class.
+    # that will perform all interest related calculations, it will contain the current interest rate. (ass a class member)
+    
     def _interest_amount(self):
         """Calculate interest multiplier.
 
