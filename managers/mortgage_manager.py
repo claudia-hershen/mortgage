@@ -5,6 +5,14 @@ from models.payment_amount import PaymentAmmount
 from models.mortgage_amount import MortgageAmmount
 from models.parameters import Parameters
 
+# Adrianc: you need to have an __init__ here that will contain all related objects you created in other modules
+# like Parameters()
+# all methods should have a well defined and documented API and not just a json blob
+# e.g : maximum_mortgage(self, data)  -> maximum_mortgage(self, payment_amount, down_payment, payment_schedule, ammortization_period)
+# upper layer should handle the unpacking of the data dictionary from the request.
+# Alternatively you can define a new set of classes that represent a MortgageRequest whith subclasses: MaxMortgageRequest and ChangeInterestRequest
+# these classes can have a validate_request() method to validate (or further validate in case of using json schema)
+# the given input from the HTTP request
 
 class MortgageManager(object):
     """Mortgage manager functions and actions."""
