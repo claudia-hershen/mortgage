@@ -1,6 +1,9 @@
 """Mortgage Class."""
 from parameters import Parameters
 
+# Adrianc: you need to pay attention to external VS internal APIs
+# protected and private methods are prefixed with _ or __ respectively
+# while this is just a semantic, its honored by Python developers.
 
 class Mortgage(object):
     """
@@ -45,6 +48,10 @@ class Mortgage(object):
             - biweekly payment schedule -> self.parameters.biweeks_per_year
             - weekly payment schedule -> self.parameters.weeks_per_year
         """
+        
+        # Adrianc: you can have a class dict member for this
+        # returning Mortgage.to_payment_units['payment_schedule']
+        # payment_schedule is already validated at upper layers 
         if self.payment_schedule == 'monthly':
             return self.parameters.months_per_year
         elif self.payment_schedule == 'biweekly':
