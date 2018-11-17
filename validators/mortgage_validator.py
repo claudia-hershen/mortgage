@@ -1,9 +1,24 @@
 """."""
+
+# Adrianc: these validator utilities are not needed IMO.
 from utility.validator_utility import is_number
 from utility.validator_utility import number_bigger_than
 from utility.validator_utility import number_smaller_than
 from utility.validator_utility import is_negative_number
 
+# Adrianc: the entire validation process can be done against a json schema https://json-schema.org/
+# you can create a schema per request and avoid the hardcoded logic here.
+# the following comments will regard to the code
+# (i.e assuming you go with non schema based validation, what can be improved)
+
+
+# Adrianc: the below code can be composed into a class
+
+# Adrianc: The entire error handing thourghout the code should be exception based which should be in a dedicate module
+# e.g exceptions/param_validation_errors.py which will contain exception derrived from exceptions/base.py base exception class
+# A validation shall emit an exception on the first error it encounters.
+
+# Adrianc: Those can be class members as they are fixed for all instances
 SECRET_KEY = 'any secret string'
 EXPENSIVE_HOUSE_PRICE = 1000000
 MEDIUM_HOUSE_PRICE = 500000
@@ -12,6 +27,7 @@ MEDIUM_HOUSE_MIN_DOWN_PAYMENT_PERCENT_LOW = 5
 MEDIUM_HOUSE_MIN_DOWN_PAYMENT_PERCENT_HIGH = 10
 
 
+# Adrianc: what is it that you are trying to validate here here ?
 def validate_request(request_key, request_length, real_length):
     """Validate if the request is formed properly.
 
@@ -41,6 +57,10 @@ def validate_interest_rate_request(data):
     """
     is_valid = True
     errors = {}
+    # Adrianc: 'interest_rate' is fixed key, should be a Const defined as a class memeber or a different ConstsClass
+    # same goes for the rest of the keys used in this code.
+    # Also why not fail on the first error ? the params constraint should be documented in the REST API documentation
+    # User is in charge of READING this documentation before attempttion to use the API.
     errors['interest_rate'] = []
     if 'interest_rate' in data:
         interest = data['interest_rate']
