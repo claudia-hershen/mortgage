@@ -1,8 +1,11 @@
 """Parameters Class."""
 
+# Adrianc: TBH i am not sure this persistency is needed for the drill
+# hoever if its needed you can define a PersistentParameter class that does this
+# the module should only contain the root path where to write the files.
 INTEREST_FILE_PATH = 'interest.txt'
 
-
+# Adrianc: MortgageParameters ?
 class Parameters(object):
     """
     Parameters - Class with parameters used by the app.
