@@ -65,3 +65,4 @@ class Parameters(object):
             interest_file.write(str(value))
             interest_file.close()
             self._interest_percent = value
+            
