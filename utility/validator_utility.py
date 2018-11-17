@@ -1,5 +1,7 @@
 """Utility Functions."""
 
+# Adrianc: well i dont understand why this is needed, python builtin already deal with
+# the functionality this module offers.
 
 def is_number(test_value):
     """Check if test_value is a number.
